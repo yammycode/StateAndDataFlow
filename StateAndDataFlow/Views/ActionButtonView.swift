@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct ButtonVIew: View {
-   @ObservedObject var timer: TimeCounter
+struct ActionButtonView: View {
+    @ObservedObject var timer: TimeCounter
     
     var body: some View {
         Button(action: { timer.startTimer()}) {
@@ -17,18 +17,12 @@ struct ButtonVIew: View {
                 .fontWeight(.bold)
                 .foregroundColor(.white)
         }
-        .frame(width: 200, height: 60)
-        .background(Color.red)
-        .cornerRadius(20)
-        .overlay {
-            RoundedRectangle(cornerRadius: 20)
-                .stroke(Color.black, lineWidth: 4)
-        }
+        .defaultStyling(color: .red)
     }
 }
 
-struct ButtonVIew_Previews: PreviewProvider {
+struct ActionButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonVIew(timer: TimeCounter())
+        ActionButtonView(timer: TimeCounter())
     }
 }
