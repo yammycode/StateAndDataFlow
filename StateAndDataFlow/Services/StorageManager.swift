@@ -23,7 +23,7 @@ class StorageManager {
         }
     }
 
-    func getUser() -> User? {
+    func getUser() -> User {
         if let data = defaults.data(forKey: "user") {
             do {
                 let decoder = JSONDecoder()
@@ -31,14 +31,13 @@ class StorageManager {
                 return user
             } catch {
                 print("User decode error (\(error))")
-                return nil
+                return User()
             }
         }
-        return nil
+        return User()
     }
 
     func deleteUser() {
         defaults.removeObject(forKey: "user")
-        //defaults.synchronize()
     }
 }

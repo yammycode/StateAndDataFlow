@@ -9,7 +9,6 @@ import SwiftUI
 
 @main
 struct StateAndDataFlowApp: App {
-    @AppStorage("user") private var userData: Data = Data()
     @StateObject private var userManager = UserManager()
     
     var body: some Scene {

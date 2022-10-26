@@ -8,17 +8,9 @@
 import Foundation
 
 class UserManager: ObservableObject {
-    @Published var user: User
+    @Published var user = StorageManager.shared.getUser()
 
     var isNameValid: Bool {
         user.name.count >= 3
-    }
-
-    init() {
-        if let user = StorageManager.shared.getUser() {
-            self.user = user
-        } else {
-            self.user = User()
-        }
     }
 }
